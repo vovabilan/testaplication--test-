@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
     :maximum => 250}
   validates :lastname, :presence => true, :length => {:minimum => 2,
     :maximum => 250}
-  validates :email, :presence => true, :length => {:minimum => 5}, 
+  validates :email, :uniqueness => true, :presence => true, :length => {:minimum => 5,
+    :maximum => 250},
     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
   
   def fullname
