@@ -1,11 +1,11 @@
-<h1>New user</h1>
+<h1> <%= t(".new_user") %></h1>
 
 <%= semantic_form_for(@user) do |f| %>
 
-  <%= f.input :firstname, :label => 'First name' %>
-  <%= f.input :lastname, :label => 'Last name' %>
-  <%= f.input :email, :as => :email, :label => 'Email' %>
+  <%= f.input :firstname, :label => t('First name') %>
+  <%= f.input :lastname, :label => t('Last name') %>
+  <%= f.input :email, :as => :email, :label => t('Email') %>
 
   <%= f.action :submit, :as => :button %>
-  <%= f.action :cancel, :as => :link, :label => 'Back' %>
+  <%= f.action :cancel, :as => :link, :label => t('back') %>
 <% end %>
