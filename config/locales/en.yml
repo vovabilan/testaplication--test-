@@ -4,15 +4,25 @@
 en:
   users:
     index:
+      user_users: "Users"
+      user_name: "Name"
       i_show: "Show"
+      are you sure?: "Are you sure?"
     edit:
       edit_user: "Edit user"
       first_name: "First name"
       last_name: "Last name"
       email: "Email"
+      back: "Back"
     new:
       new_user: "New user"
       first_name: "First name"
       last_name: "Last name"
       email: "Email"
       back: "Back"
+    show:
+      show_user: "Show user"
+      back: "Back"
+      first_name: "First name:"
+      last_name: "Last name:"
+      email: "Email:"

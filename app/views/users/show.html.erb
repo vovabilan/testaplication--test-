@@ -1,19 +1,19 @@
-<h1>Show user</h1>
+<h1> <%= t("show_user") %></h1>
 
 <p>
-  <b>First name:</b>
+  <b> <%= t("first_name:") %></b>
   <%= @user.firstname %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <b> <%= t("last_name:") %></b>
   <%= @user.lastname %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b> <%= t("email:") %></b>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Back', users_path %>
+<%= link_to t("back"), users_path %>
 
