@@ -1,0 +1,23 @@
+<h1> <%= t(".company_companies") %> </h1>
+
+<table>
+  <tr>
+    <th> <%= t(".company_name") %></th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <% @company.each do |company| %>
+    <tr>
+      <td><%= company.name %></td>
+      <td>
+        <%= link_to t(".i_show"), company_path(company) %>
+        <%= link_to 'Edit', edit_company_path(company) %>
+        <%= link_to 'Delete', company, confirm: 'are you sure?', method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New company', new_company_path %>
