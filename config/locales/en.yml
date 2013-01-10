@@ -4,7 +4,7 @@
 en:
   companies:
     index:
-      company_companys: "Company"
+      company_companies: "Company"
       company_name: "Name"
       i_show: "Show"
       are you sure?: "Are you sure?"
