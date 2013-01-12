@@ -1,0 +1,16 @@
+<h1> <%= t(".show_post", post: @post.title)  %></h1>
+
+<p>
+  <b> <%= t("title:") %></b>
+  <%= @post.title %>u
+</p>
+<p>
+  <b> <%= t("description:") %></b>
+  <%= @post.description %>
+</p>
+<p>
+  <b> <%= t("published_at:") %></b>
+  <%= @post.published_at %>
+</p>
+
+<%= link_to t("back"), companies_path %>

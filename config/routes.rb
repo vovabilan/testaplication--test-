@@ -1,5 +1,6 @@
 Testaplication::Application.routes.draw do
 
+  resources :posts
   resources :users, :path => "people"
   resources :companies
   # The priority is based upon order of creation:
