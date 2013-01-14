@@ -1,0 +1,25 @@
+en:
+  posts:
+    index:
+      post_posts: "Posts"
+      post_name: "Post"
+      i_show: "Show"
+      are you sure?: "Are you sure?"
+    edit:
+      edit_post: "Edit %{model}"
+      title: "Title"
+      description: "Description"
+      published_at: "Published"
+      back: "Back"
+    new:
+      new_post: "New Post"
+      title: "Title"
+      description: "Description"
+      published_at: "Published"
+      back: "Back"
+    show:
+      show_post: "Show %{post}"
+      back: "Back"
+      title: "Title:"
+      description: "Description:"
+      published_at: "Published:"

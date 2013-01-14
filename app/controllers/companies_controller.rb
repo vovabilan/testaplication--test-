@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_filter :find_company, :only => [ :destroy, :update, :show, :edit ]
   def index
-    @company = Company.all
+    @companies = Company.all
   end
   
   def new
