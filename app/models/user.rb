@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :firstname, :lastname
-  
+
+  belongs_to :company
+  has_many :posts  
+
   validates :firstname, :presence => true, :length => {:minimum => 2,
     :maximum => 250}
   validates :lastname, :presence => true, :length => {:minimum => 2,

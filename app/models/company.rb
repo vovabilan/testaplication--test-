@@ -7,4 +7,6 @@ class Company < ActiveRecord::Base
     :maximum => 250},
     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
   
+  has_many :users
+  has_many :posts, :through => :users 
 end
