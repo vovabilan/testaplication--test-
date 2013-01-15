@@ -6,6 +6,13 @@
   <%= f.input :lastname, :label => t('Last name') %>
   <%= f.input :email, :as => :email, :label => t('Email') %>
 
+  select("company", "category", {:include_blank => true})
+  <select name="company[category]">
+    <option value="">None</option>
+    <option value="1"></option>
+   
+  </select>
+
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t('.back') %>
 <% end %>
