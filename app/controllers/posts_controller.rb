@@ -6,9 +6,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @users = User.all
   end
 
   def update
+    @users = User.all
+    
     if @post.update_attributes params[:post]
       redirect_to posts_path(@post)
     else

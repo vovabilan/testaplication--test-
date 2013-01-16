@@ -6,7 +6,7 @@
   <%= f.input :lastname, :label => t("last_name") %>
   <%= f.input :email, :as => :email, :label => t("email") %>
 
-  <%= f.input :company, :as => :select, :collection => Company.all %>
+  <%= f.input :company, :as => :select, :collection => @companies %>
 
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t(".back") %>

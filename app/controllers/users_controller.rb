@@ -6,9 +6,12 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @companies = Company.all
   end
   
   def update
+    @companies = Company.all
+
     if @user.update_attributes params[:user]
       redirect_to user_path(@user)
     else
