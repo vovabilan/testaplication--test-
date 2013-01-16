@@ -17,7 +17,6 @@ en:
       description: "Description"
       published_at: "Published"
       back: "Back"
-      user_all: "User.all"
     show:
       show_post: "Show %{post}"
       back: "Back"

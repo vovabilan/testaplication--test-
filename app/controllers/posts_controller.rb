@@ -10,13 +10,16 @@ class PostsController < ApplicationController
   end
 
   def update
-    @users = User.all
     
     if @post.update_attributes params[:post]
       redirect_to posts_path(@post)
     else
       render :edit
     end
+  end
+
+  def edit
+    @users = User.all
   end
 
   def create

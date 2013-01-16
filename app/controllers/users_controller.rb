@@ -10,15 +10,15 @@ class UsersController < ApplicationController
   end
   
   def update
-    @companies = Company.all
-
     if @user.update_attributes params[:user]
       redirect_to user_path(@user)
     else
       render :edit
     end
   end
-
+  def edit
+    @companies = Company.all
+  end
   def create
     @user = User.new params[:user]
     
