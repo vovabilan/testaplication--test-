@@ -6,6 +6,8 @@
   <%= f.input :description, :label => t("description") %>
   <%= f.input :published_at, :label => t("published_at") %>
 
+  <%= f.input :user, :as => :select, :collection => @users %>
+
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t("back") %>
 <% end %>

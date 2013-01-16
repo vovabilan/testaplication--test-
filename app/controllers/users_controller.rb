@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @companies = Company.all
   end
   
   def update
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+  def edit
+    @companies = Company.all
+  end
   def create
     @user = User.new params[:user]
     

@@ -6,6 +6,8 @@
   <%= f.input :lastname, :label => t('Last name') %>
   <%= f.input :email, :as => :email, :label => t('Email') %>
 
+  <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name)  %>
+  
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t('.back') %>
 <% end %>

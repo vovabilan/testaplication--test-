@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true, :presence => true, :length => {:minimum => 5,
     :maximum => 250},
     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
-  
+
+  validates :company, :presence => true
+
   def fullname
     "#{firstname} #{lastname}"
   end
