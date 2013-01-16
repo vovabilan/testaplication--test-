@@ -1,0 +1,10 @@
+<h1> <%= t(".new_category") %></h1>
+
+<%= semantic_form_for(@category) do |f| %>
+
+  <%= f.input :name, :label => t("name") %>
+  
+
+  <%= f.action :submit, :as => :button %>
+  <%= f.action :cancel, :as => :link, :label => t('back') %>
+<% end %>

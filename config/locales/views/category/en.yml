@@ -1,0 +1,13 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  categories:
+    new:
+      new_category: "New category"
+      name: "Name"
+      back: "Back"
+    index:
+      category_categories: "Category"
+      category_name: "Name"
+      are you sure?: "Are you sure?"
