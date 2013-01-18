@@ -2,9 +2,9 @@
 
 <%= semantic_form_for(@user) do |f| %>
 
-  <%= f.input :firstname, :label => t('First name') %>
-  <%= f.input :lastname, :label => t('Last name') %>
-  <%= f.input :email, :as => :email, :label => t('Email') %>
+  <%= f.input :firstname, :label => t('.first_name') %>
+  <%= f.input :lastname, :label => t('.last_name') %>
+  <%= f.input :email, :as => :email, :label => t('.email') %>
 
   <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name)  %>
   
