@@ -17,7 +17,6 @@ en:
       last_name: "Last name"
       email: "Email"
       back: "Back"
-      
     show:
       show_user: "Show %{fullname}"
       back: "Back"
