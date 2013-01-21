@@ -7,7 +7,9 @@
   <%= f.input :published_at, :label => t(".published_at") %>
 
   <%= f.select :user_id, options_from_collection_for_select(@users, :id, :fullname)  %>
-  
+
+  <%= f.input :companies, :as => :check_boxes, options_from_collection_for_select[@categories, :id, :name] %>
+
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t('.back') %>
 <% end %>

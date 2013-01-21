@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   
   def create
     @category = Category.new params[:category]
+    @companies = Company.all
     
     if @category.valid?
       @category.save
@@ -25,5 +26,6 @@ class CategoriesController < ApplicationController
   
   def new
     @category = Category.new
+    @companies = Company.all
   end
 end
