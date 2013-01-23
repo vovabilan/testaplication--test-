@@ -2,13 +2,13 @@
 
 <%= semantic_form_for(@post) do |f| %>
 
-  <%= f.input :title, :label => t("title") %>
-  <%= f.input :description, :label => t("description") %>
-  <%= f.input :published_at, :label => t("published_at") %>
+  <%= f.input :title, :label => t(".title") %>
+  <%= f.input :description, :label => t(".description") %>
+  <%= f.input :published_at, :label => t(".published_at") %>
 
-  <%= f.input :user, :as => :select, :collection => @users %>
+  <%= f.input :user, :as => :select, :collection => Hash[@users.map{|b|[b.fullname, b.id]}] %>
 
   <%= f.action :submit, :as => :button %>
-  <%= f.action :cancel, :as => :link, :label => t("back") %>
+  <%= f.action :cancel, :as => :link, :label => t(".back") %>
 <% end %>
 

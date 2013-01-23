@@ -6,3 +6,10 @@ en:
   user: "User"
   post: "Post"
   category: "Category"
+  formtastic:
+    labels:
+      category:
+        new:
+          name: "Name"
+          company: "Company"
+          user: "User"

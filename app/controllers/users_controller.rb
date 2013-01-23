@@ -16,15 +16,26 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
   def edit
-    @companies = Company.all
+    if company.all
+      @companies = Company.all
+    else
+      @user = User.find_by_token(params[:id])
+        unless @user.nil?
+          @user.activate
+          flash[:notice] = 'Registration confirmed'
+        end
+        redirect_to :root
+    end
   end
+  
   def create
     @user = User.new params[:user]
     
     if @user.valid?
       @user.save
-      redirect_to users_path
+      redirect_to users_path, :notice => "Success"
     else
       render :new
     end

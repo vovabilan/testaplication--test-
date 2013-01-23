@@ -19,12 +19,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @users = User.all
+   @users = User.all
   end
 
   def create
     @post = Post.new params[:post]
-
     if @post.valid?
       @post.save
       redirect_to posts_path
