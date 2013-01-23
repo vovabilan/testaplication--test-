@@ -11,12 +11,14 @@ en:
       description: "Description"
       published_at: "Published"
       back: "Back"
+      user: "User"
     new:
       new_post: "New Post"
       title: "Title"
       description: "Description"
       published_at: "Published"
       back: "Back"
+      user: "User"
     show:
       show_post: "Show %{post}"
       back: "Back"

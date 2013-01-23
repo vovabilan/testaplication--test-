@@ -2,9 +2,8 @@
 
 <%= semantic_form_for(@category) do |f| %>
 
-  <%= f.input :name, :label => t(".name") %>
-
-  <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name) %>
+  <%= f.input :name %>
+  <%= f.input :company, :as => :select, :collection => @companies %>
 
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link, :label => t('.back') %>
