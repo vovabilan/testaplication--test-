@@ -3,6 +3,9 @@ Testaplication::Application.routes.draw do
   resources :posts
   resources :companies
   resources :categories, :only => [:destroy, :create, :index, :new]
+  resources :password_resets, :except => [:index, :show, :destroy]
+  resources :users, :only => [:new, :create, :edit]
+  resource  :session, :only => [:new, :create, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,5 +62,5 @@ Testaplication::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'companies#index'
+  root :to => 'sessions#new'
 end
