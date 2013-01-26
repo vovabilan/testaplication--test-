@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout "new"
+  layout "signup"
   def create
     user = User.find_by_email(params[:email])
     if user && !user.activated?
@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       render :new
     elsif user && user.authenticate(params[:password])
       params[:remember_me] ? cookies.permanent[:auth_token] = user.auth_token : cookies[:auth_token] = user.auth_token
-      redirect_to root_url, :notice => "Logged in!"
+      redirect_to companies_url, :notice => "Logged in!"
     else
       flash.now[:error] = "Invalid email or password"
       render :new
