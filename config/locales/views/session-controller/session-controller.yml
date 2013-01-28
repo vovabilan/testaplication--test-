@@ -1,0 +1,7 @@
+## YAML Template.
+
+en:
+  logged-out: "Logged out!"
+  logged-in: "Logged in!"
+  email-or-password: "Invalid email or password"
+  your-account-not-activated: "Your account not activated"
