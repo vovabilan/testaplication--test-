@@ -1,4 +1,4 @@
-<h1>Reset Password</h1>
+<h1><%= t(".reset-password") %></h1>
 
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
   <% if @user.errors.any? %>
@@ -8,9 +8,9 @@
       <% end %>
     </ul>
   <% end %>
-  <%= f.label :password %>
+  <%= f.label :password, :label => t(".password") %>
   <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, :label => t(".password-con") %>
   <%= f.password_field :password_confirmation %>
   <%= f.submit "Update Password" %>
 <% end %>
