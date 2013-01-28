@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   layout "signup"
+
   before_filter :find_user, :only => [:edit, :update]
 
   def create
