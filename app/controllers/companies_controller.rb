@@ -1,5 +1,9 @@
 class CompaniesController < ApplicationController
+  
   before_filter :find_company, :only => [ :destroy, :update, :show, :edit ]
+
+  before_filter :require_superadmin_login
+
   def index
     @companies = Company.all
   end

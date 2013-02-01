@@ -8,6 +8,7 @@ en:
   category: "Category"
   confirm-registration: "Confirm registration"
   password-reset: "Password Reset"
+  you-must-be-logged: "You must be logged in to access this section"
   not-authorized: "Not authorized"
   log-out: "Log out"
   log-in: "Log in"

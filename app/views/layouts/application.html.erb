@@ -7,14 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to t("company"), companies_path %>
+  <%= link_to t("company"), companies_path if is_supper_admin? %>
   <%= link_to t("post"), posts_path %>
-  <%= link_to t("category"), categories_path %>
+  <%= link_to t("category"), categories_path if is_supper_admin? %>
 
   <% if current_user %>
     Logged in as <%= current_user.email %>. <%= link_to t("logged-out"), session_path, :method => :delete %>
-  <%  end %>
-
+  <% end %>
+    
   <%= yield %>
 
 </body>

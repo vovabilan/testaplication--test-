@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+  before_filter :require_superadmin_login
+
   def index
     @categories = Category.all
   end
