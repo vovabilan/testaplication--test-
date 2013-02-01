@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
+  
+  belongs_to :company
 
   attr_accessible :email, :password, :password_confirmation
 
@@ -8,6 +10,8 @@ class User < ActiveRecord::Base
                     :length => { :minimum => 3, :maximum => 254, :allow_blank => true },
                     :uniqueness => true,
                     :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => true }
+
+  validates :company, presence: true
 
   before_create { generate_token(:auth_token); generate_token(:token) }
   after_create :send_confirmation
@@ -36,4 +40,5 @@ class User < ActiveRecord::Base
     save
     UserMailer.password_reset(self).deliver
   end
+
 end
