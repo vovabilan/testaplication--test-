@@ -14,6 +14,6 @@
   <%= f.password_field :password %>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
-  <%= f.collection_select :company, Company.all, :id, :name %>
+  <%= f.collection_select :company, @companies, :id, :name %>
   <%= f.submit %>
 <% end %>
