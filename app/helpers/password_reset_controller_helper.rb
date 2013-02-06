@@ -1,0 +1,2 @@
+module PasswordResetControllerHelper
+end

@@ -1,17 +1,16 @@
 class PostsController < ApplicationController
   before_filter :find_post, :only => [ :destroy, :update, :show, :edit ]
-  
+  before_filter :category, :only => [:new, :create]
+
   def index
     @posts = Post.all
   end
 
   def new
     @post = Post.new
-    @users = User.all
   end
 
   def update
-    
     if @post.update_attributes params[:post]
       redirect_to posts_path(@post)
     else
@@ -20,13 +19,13 @@ class PostsController < ApplicationController
   end
 
   def edit
-   @users = User.all
+    
   end
 
   def create
-    @post = Post.new params[:post]
+    @post = Post.new params[:post].merge!({user: current_user})
     if @post.valid?
-      @post.save
+        @post.save
       redirect_to posts_path
     else
       render :new
@@ -44,5 +43,9 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find params[:id]
+  end
+
+  def category
+    @categories = Category.all
   end
 end

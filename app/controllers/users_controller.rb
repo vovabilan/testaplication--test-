@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   layout "signup"
 
   skip_before_filter :require_login
+  before_filter :company, :only => [ :new, :create ]
   
   def new
     @user = User.new
@@ -27,5 +28,9 @@ class UsersController < ApplicationController
       end
       redirect_to :root
     end
+  end
+
+  def company
+    @companies = Company.all
   end
 end
