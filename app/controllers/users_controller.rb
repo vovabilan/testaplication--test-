@@ -2,14 +2,13 @@ class UsersController < ApplicationController
   layout "signup"
 
   skip_before_filter :require_login
+  before_filter :company, :only => [ :new, :create ]
   
   def new
     @user = User.new
-    @companies = Company.all
   end
 
   def create
-    @companies = Company.all
     @user = User.new params[:user]
     if @user.save
       redirect_to root_path, :notice => "Success"
@@ -29,5 +28,9 @@ class UsersController < ApplicationController
       end
       redirect_to :root
     end
+  end
+
+  def company
+    @companies = Company.all
   end
 end
