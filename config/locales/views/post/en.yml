@@ -7,13 +7,14 @@ en:
       are you sure?: "Are you sure?"
     edit:
       edit_post: "Edit %{model}"
+    new:
+      new_post: "New Post"
+    edit_new: 
       title: "Title"
       description: "Description"
       published_at: "Published"
       back: "Back"
       user: "User"
-    new:
-      new_post: "New Post"
       title: "Title"
       description: "Description"
       published_at: "Published"
