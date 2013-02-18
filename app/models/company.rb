@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  attr_accessible :email, :name
+  attr_accessible :email, :name, :avatar
   
   validates :name, :presence => true, :length => {:minimum => 2,
     :maximum => 250}

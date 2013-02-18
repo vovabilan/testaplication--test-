@@ -6,10 +6,12 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @user = User.create( params[:user] )
   end
 
   def create
     @user = User.new params[:user]
+    @user = User.create( params[:user] )
     if @user.save
       redirect_to root_path, :notice => "Success"
     else

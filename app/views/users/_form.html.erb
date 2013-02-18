@@ -1,0 +1,6 @@
+<div class="avatar">
+  <% form_for @user, :html => { :multipart => true } do |form| %>
+    <%= image_tag @user.avatar.url %>
+    
+  <% end %>
+</div>

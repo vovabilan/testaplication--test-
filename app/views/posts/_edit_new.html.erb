@@ -1,0 +1,12 @@
+<div class="edit_post">
+  <%= semantic_form_for(@post) do |f| %>
+
+    <%= f.input :title, label: t(".title") %>
+    <%= f.input :description, label: t(".description") %>
+    <%= f.input :published_at, label: t(".published_at") %>
+    <%= f.input :categories, as: :check_boxes, collection: current_user.company.categories %>
+
+    <%= f.action :submit, as: :button %>
+    <%= f.action :cancel, as: :link, :label => t('.back') %>
+  <% end %>
+</div>
