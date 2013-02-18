@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   before_filter :reqire_logined_user, only: [:new, :create]
 
   def create
-    @user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:email])
     if user && !user.activated?
       flash.now[:error] = t('.your-account-not-activated')
       render :new
@@ -28,5 +28,4 @@ class SessionsController < ApplicationController
   def reqire_logined_user
     redirect_to companies_path if current_user
   end
-
 end

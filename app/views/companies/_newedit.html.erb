@@ -1,0 +1,10 @@
+<div class="editpost">
+  <%= semantic_form_for(@company) do |f| %>
+
+    <%= f.input :name, :label => t(".name") %>
+    <%= f.input :email, :as => :email, :label => t(".email") %>
+
+    <%= f.action :submit, :as => :button %>
+    <%= f.action :cancel, :as => :link, :label => t(".back") %>
+  <% end %>
+</div>

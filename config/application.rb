@@ -33,7 +33,8 @@ module Testaplication
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-
+    config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
+    config.paperclip_defaults = {default_url: "http://www.example.com/missing.png"}
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

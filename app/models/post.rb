@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :description, :published_at, :title, :category_ids, :user
+  attr_accessible :description, :published_at, :title, :category_ids, :user, :avatar
 
   validates :title, :presence => true
 

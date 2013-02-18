@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
+
   belongs_to :company
 
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :company_id, :avatar
+  
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   validates :password, :presence => true
   validates :email, :presence => true,
@@ -11,7 +13,10 @@ class User < ActiveRecord::Base
                     :uniqueness => true,
                     :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => true }
 
-  validates :company, presence: true
+  validates_attachment_size :avatar, :less_than => 5.megabytes
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+
+  validates :company, :presence => true
 
   before_create { generate_token(:auth_token); generate_token(:token) }
   after_create :send_confirmation

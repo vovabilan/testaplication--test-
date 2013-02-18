@@ -10,11 +10,9 @@ en:
       are you sure?: "Are you sure?"
     edit:
       edit_company: "Edit %{model}"
-      name: "Name"
-      email: "Email"
-      back: "Back"
     new:
       new_company: "New company"
+    newedit:
       name: "Name"
       email: "Email"
       back: "Back"
