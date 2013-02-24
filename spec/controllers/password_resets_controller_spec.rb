@@ -5,6 +5,7 @@ describe PasswordResetsController do
   let(:user) { FactoryGirl.create(:user) }
   let(:company) { FactoryGirl.create(:company) }
 
+
   it 'should get new' do
     get :new
     response.should be_success

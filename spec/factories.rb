@@ -5,6 +5,7 @@ FactoryGirl.define do
   end
 
   factory :user do
+    avatar 'http://www.example.com/missing.png'
     email Faker::Internet.email
     token SecureRandom.urlsafe_base64
     auth_token SecureRandom.urlsafe_base64

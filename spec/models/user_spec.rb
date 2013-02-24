@@ -3,11 +3,16 @@ require 'spec_helper'
 describe User do
 
   let(:user) { FactoryGirl.build(:user) }
+  let(:avatar) { factoryGirl.build(:avatar)}
 
   context 'validations' do
 
     it 'should be valid' do
       user.should be_valid
+    end
+
+    it 'should not avatar' do
+      expect(subject.logo).to have_tag("img", :with => {:src => user_profile.avatar.url})
     end
 
     it 'should not create without email' do

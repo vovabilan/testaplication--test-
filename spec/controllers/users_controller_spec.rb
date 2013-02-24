@@ -5,6 +5,7 @@ describe UsersController do
   let(:user_params) { FactoryGirl.attributes_for(:user) }
   let(:user) { FactoryGirl.create(:user) }
 
+
   it 'should get new' do
     get :new
     response.should be_success
