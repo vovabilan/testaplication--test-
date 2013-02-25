@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user_params) { FactoryGirl.attributes_for(:user) }
   let(:user) { FactoryGirl.create(:user) }
-
+  let(:company) { FactoryGirl.create(:company) }
+  let(:user_params) { FactoryGirl.attributes_for(:user).merge!(company_id: company.id) }
 
   it 'should get new' do
     get :new
@@ -16,6 +16,7 @@ describe UsersController do
 
   describe 'post create'
     it 'should create new user' do
+      [:token, :auth_token].each { |k| user_params.delete k }
       post :create, :user => user_params
       flash[:notice].should_not be_blank
       assigns[:user].should_not be_nil
@@ -24,7 +25,7 @@ describe UsersController do
     end
 
     it 'should not create new user' do
-      user_params.delete(:email)
+      [:token, :auth_token, :email].each { |k| user_params.delete k }
       post :create, :user => user_params
       flash.should be_blank
       assigns[:user].should_not be_nil
@@ -46,8 +47,5 @@ describe UsersController do
       response.should redirect_to root_path
     end
   end
-
-  let(:company) { FactoryGirl.create(:company) }
-  
 
 end

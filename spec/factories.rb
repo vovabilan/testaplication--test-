@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    avatar 'http://www.example.com/missing.png'
+    avatar { Rack::Test::UploadedFile.new( Rails.root.join("spec", "images", "user-avatar.png"), "image/png") }
     email Faker::Internet.email
     token SecureRandom.urlsafe_base64
     auth_token SecureRandom.urlsafe_base64
@@ -13,5 +13,5 @@ FactoryGirl.define do
     password 'Password2012'
     password_confirmation 'Password2012'
   end
-  
+
 end
