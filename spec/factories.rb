@@ -14,4 +14,12 @@ FactoryGirl.define do
     password_confirmation 'Password2012'
   end
 
+  factory :post do
+    title 'New page'
+    published_at Date.new(2012, 12, 3)
+  end
+
+  factory :category do
+    sequence(:name) {|n| "Category #{n}" }
+  end
 end

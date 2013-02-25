@@ -3,7 +3,7 @@
 
     <%= f.input :title, label: t(".title") %>
     <%= f.input :description, label: t(".description") %>
-    <%= f.input :published_at, label: t(".published_at") %>
+    <%= f.input :published_at, as: :string, label: t(".published_at") %>
     <%= f.input :categories, as: :check_boxes, collection: current_user.company.categories %>
 
     <%= f.action :submit, as: :button %>
