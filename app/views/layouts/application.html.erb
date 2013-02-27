@@ -16,8 +16,9 @@
     <%= current_user.email %>.
     <%= link_to t("logged-out"), session_path, :method => :delete %>
   <% end %>
-  
+
   <%= yield %>
+
 
 </body>
 </html>

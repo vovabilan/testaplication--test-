@@ -1,5 +1,23 @@
-<h1> <%= t(".company_companies") %> </h1>
 
+<div id="slides">
+  <div class="slides_container">
+    <% User.all.each do |user| %>
+      <%- if user.avatar %>
+        <div>
+          <%= image_tag user.avatar.url(:medium)   %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div id="tooltipsy">
+   <img src="1.jpg" title="Mack-D@ukr.net"/>
+   <img src="http://localhost:3000/system/users/avatars/000/000/003/medium/d3JDdGgmc-I.jpg?1361882685" title="vovabilan89@gmail.com"/>
+   <img src="http://localhost:3000/system/users/avatars/000/000/004/medium/HefuZJTc2O0.jpg?1361882904" title="vovabilan89@ukr.net"/>
+   <img src="http://localhost:3000/system/users/avatars/000/000/002/medium/motociklist_foto.jpg?1361195478" title="Mack-D@bigmir.net."/>
+</div>
+
+<h1> <%= t(".company_companies") %> </h1>
 <table>
   <tr>
     <th> <%= t(".company_name") %></th>

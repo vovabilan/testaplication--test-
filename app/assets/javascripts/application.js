@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require slides.min.jquery.js
+//= require slides.jquery.js
+//= require jquery.tooltip.js
 //= require_tree .
