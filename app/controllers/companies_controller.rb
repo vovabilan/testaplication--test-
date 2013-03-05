@@ -22,9 +22,10 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new params[:company]
-    
+      
     if @company.valid?
       @company.save
+      send_email_for_users(@company)
       redirect_to companies_path
     else
       render :new

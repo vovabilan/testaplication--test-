@@ -10,5 +10,13 @@ class Company < ActiveRecord::Base
   has_many :users
   has_many :posts, :through => :users
   has_many :categories
+
+  after_create :send_email_for_users
+
+  def send_email_for_users
+    User.without_supper_admin.each do |user|
+      CompanyMailer.create(self, user).deliver
+    end
+  end
   
 end

@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20130213153230) do
 
+  create_table "PosttoCategories", :force => true do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+  end
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -50,9 +55,9 @@ ActiveRecord::Schema.define(:version => 20130213153230) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.boolean  "supper_admin"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "supper_admin",           :default => false
     t.integer  "company_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

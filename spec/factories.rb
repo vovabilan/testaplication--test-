@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :user do
     avatar { Rack::Test::UploadedFile.new( Rails.root.join("spec", "images", "user-avatar.png"), "image/png") }
-    email Faker::Internet.email
+    sequence(:email) { |n| "test#{n}@example.com" }
     token SecureRandom.urlsafe_base64
     auth_token SecureRandom.urlsafe_base64
     association :company, :factory => :company
@@ -21,5 +21,9 @@ FactoryGirl.define do
 
   factory :category do
     sequence(:name) {|n| "Category #{n}" }
+  end
+
+  factory :supper_admin, parent: :user do
+    supper_admin true
   end
 end
