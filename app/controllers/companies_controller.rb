@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   end
   
   def update
+
     if @company.update_attributes params[:company]
       redirect_to companies_path(@company)
     else
@@ -22,7 +23,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new params[:company]
-    
+      
     if @company.valid?
       @company.save
       redirect_to companies_path

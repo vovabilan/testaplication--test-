@@ -2,9 +2,18 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { FactoryGirl.build(:user) }
+  let(:company) { FactoryGirl.create(:company) }
+  let(:user) { FactoryGirl.create(:user, company: company) }
+  let(:supper_admin) { FactoryGirl.create(:supper_admin, company: company) }
 
   it { should have_attached_file(:avatar) }
+
+  context "scopes" do
+    it "should find users without supper admins" do
+      User.without_supper_admin.should include(user)
+      User.without_supper_admin.should_not include(supper_admin)
+    end
+  end
 
   context 'validations' do
 

@@ -1,5 +1,17 @@
-<h1> <%= t(".company_companies") %> </h1>
 
+<div id="slides">
+  <div class="slides_container">
+    <% User.all.each do |user| %>
+      <%- if user.avatar %>
+        <div>
+          <%= image_tag user.avatar.url(:medium)   %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<h1> <%= t(".company_companies") %> </h1>
 <table>
   <tr>
     <th> <%= t(".company_name") %></th>

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
                     :length => { :minimum => 3, :maximum => 254, :allow_blank => true },
                     :uniqueness => true,
                     :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => true }
-
+  validates :avatar, :presence => true
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   before_create { generate_token(:auth_token); generate_token(:token) }
   after_create :send_confirmation
+
+  scope :without_supper_admin, where(supper_admin: false)
 
   def activate
     self.update_attribute(:token, nil)
