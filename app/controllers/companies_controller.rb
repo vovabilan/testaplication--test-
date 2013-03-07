@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    @companies = Company.search(params[:search], params[:page])
   end
   
   def new

@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'dynamic_form'
 gem 'paperclip'
 gem 'sidekiq'
+gem 'will_paginate', '~> 3.0'
 gem "formtastic", "~> 2.2.1"
 gem 'bcrypt-ruby', '~> 3.0.0' # To use ActiveModel has_secure_password
 # Gems used only for assets and not required
