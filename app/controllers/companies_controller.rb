@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   end
   
   def update
+
     if @company.update_attributes params[:company]
       redirect_to companies_path(@company)
     else
@@ -25,7 +26,6 @@ class CompaniesController < ApplicationController
       
     if @company.valid?
       @company.save
-      send_email_for_users(@company)
       redirect_to companies_path
     else
       render :new

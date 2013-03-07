@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :company do
-    email Faker::Internet.email
+    sequence(:email) { |n| "test_company_#{n}@example.com" }
     name Faker::Company.name
   end
 
@@ -16,11 +16,13 @@ FactoryGirl.define do
 
   factory :post do
     title 'New page'
-    published_at Date.new(2012, 12, 3)
+    description "description"
+    published_at "#{Date.new(2012, 12, 3)}"
   end
 
   factory :category do
     sequence(:name) {|n| "Category #{n}" }
+    association :company, :factory => :company
   end
 
   factory :supper_admin, parent: :user do
