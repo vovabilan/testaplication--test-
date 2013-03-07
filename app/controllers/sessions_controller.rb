@@ -27,5 +27,6 @@ class SessionsController < ApplicationController
   
   def reqire_logined_user
     redirect_to companies_path if current_user
+    
   end
 end

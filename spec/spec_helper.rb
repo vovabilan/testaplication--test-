@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'database_cleaner'
 require 'factory_girl'
 FactoryGirl.find_definitions
 require "paperclip/matchers"
@@ -26,14 +27,17 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
-
+  #config.use_transactional_fixtures = true
+  DatabaseCleaner.strategy = :truncation
+  config.use_transactional_fixtures = false
+  config.before(:each) { DatabaseCleaner.start }
+  config.after(:each) { DatabaseCleaner.clean }
+  config.before(:suite) { DatabaseCleaner.strategy = :truncation }
+  
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
-end
 
-Spec::Runner.configure do |config|
   config.include Paperclip::Shoulda::Matchers
 end

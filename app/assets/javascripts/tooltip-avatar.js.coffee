@@ -2,4 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$ -> $('#post_published_at').datepicker()
+$ -> $(".exampletooltip").tooltip( position: { my: "left bottom", at: "right top", collision: "flip flip" } );

@@ -9,3 +9,13 @@
   padding: 0.2em 0.4em;
   outline: 2px dashed red;
 }
+
+.slides_container {
+    width:570px;
+    height:270px;
+}
+.slides_container div {
+    width:570px;
+    height:270px;
+    display:block;
+}

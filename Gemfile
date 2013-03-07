@@ -8,10 +8,12 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'dynamic_form'
 gem 'paperclip'
+gem 'sidekiq'
 gem "formtastic", "~> 2.2.1"
 gem 'bcrypt-ruby', '~> 3.0.0' # To use ActiveModel has_secure_password
 # Gems used only for assets and not required
 # in production environments by default.
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -27,6 +29,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'faker'
   gem 'pry'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
