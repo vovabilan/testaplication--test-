@@ -11,11 +11,12 @@
       <td><%= category.name %></td>
       <td>
         <%= link_to 'Delete', category, confirm: 'are you sure?', method: :delete %>
+        
       </td>
     </tr>
   <% end %>
 </table>
-
+<%= will_paginate @categories %>
 <br />
 
 <%= link_to 'New category', new_category_path %>

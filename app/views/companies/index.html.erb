@@ -25,11 +25,12 @@
         <%= link_to t(".i_show"), company_path(company) %>
         <%= link_to 'Edit', edit_company_path(company) %>
         <%= link_to 'Delete', company, confirm: 'are you sure?', method: :delete %>
+        
       </td>
     </tr>
   <% end %>
 </table>
-
+<%= will_paginate @companies %>
 <br />
 
 <%= link_to 'New company', new_company_path %>
