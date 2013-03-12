@@ -20,6 +20,12 @@ FactoryGirl.define do
     published_at "#{Date.new(2012, 12, 3)}"
   end
 
+  factory :menu do
+    association :company, :factory => :company
+    association :category, :factory => :category
+    association :post, :factory => :post
+  end
+
   factory :category do
     sequence(:name) {|n| "Category #{n}" }
     association :company, :factory => :company
