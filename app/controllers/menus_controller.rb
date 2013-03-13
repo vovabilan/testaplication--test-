@@ -3,7 +3,8 @@ class MenusController < ApplicationController
   def index
     @companies = Company.all
     @categories = Category.all
-    @posts = Post.all
+    @posts = current_user.posts
+    
   end
 
 end

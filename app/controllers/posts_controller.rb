@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_filter :category, :only => [:new, :create]
 
   def index
-    @posts = Post.all
-    @posts = Post.search(params[:search], params[:page])
+    @posts = current_user.posts
+    @post = Post.search(params[:search], params[:page])
   end
 
   def new

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   belongs_to :company
+  has_many :posts
 
   attr_accessible :email, :password, :password_confirmation, :company_id, :avatar
   
