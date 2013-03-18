@@ -10,6 +10,9 @@ class CategoriesController < ApplicationController
     end
 
     @categories = @search.results
+
+    @categories = Category.paginate(:per_page => params[:per_page] || PER_PAGE,
+                       :page => params[:page] || 1)
   end
 
   def new

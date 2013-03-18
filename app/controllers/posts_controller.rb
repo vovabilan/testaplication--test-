@@ -11,6 +11,9 @@ class PostsController < ApplicationController
     end
 
     @posts = @search.results
+
+    @posts = Post.paginate(:per_page => params[:per_page] || PER_PAGE,
+                       :page => params[:page] || 1)
   end
 
   def new

@@ -4,3 +4,7 @@
 <%= render :partial => "categories/categories", :locals => {:categories => @categories} if is_supper_admin? %>
 
 <%= render :partial => "posts/posts", :locals => {:posts => @posts} %>
+
+<%= will_paginate @companies %>
+<%= will_paginate @categories %>
+<%= will_paginate @posts %>
