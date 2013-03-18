@@ -1,3 +1,10 @@
+<%= form_tag posts_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <h1> <%= t(".post_posts") %> </h1>
 
 <table>
@@ -16,9 +23,10 @@
        
       </td>
     </tr>
+
   <% end %>
 </table>
-<%= will_paginate @post %>
+<%= will_paginate @posts %>
 <br />
 
 <%= link_to 'New post', new_post_path %>

@@ -8,7 +8,8 @@ class Category < ActiveRecord::Base
   has_many :render_post_to_categories
   has_many :posts, :through => :render_post_to_categories
 
-  def self.search(search, page)
-    paginate :per_page => 5, :page => page
+  searchable do
+    text :name, :boost => 2.0
   end
+  
 end

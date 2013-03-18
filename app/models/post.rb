@@ -8,8 +8,11 @@ class Post < ActiveRecord::Base
   has_many :categories, :through => :render_post_to_categories
 
   belongs_to :user
-  
-  def self.search(search, page)
-    paginate :per_page => 5, :page => page
+
+  searchable do
+    text :title, :boost => 2.0
+    text :description
+    integer :user_id
   end
+
 end

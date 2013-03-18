@@ -13,14 +13,14 @@ class Company < ActiveRecord::Base
 
   after_create :send_email_for_users
 
+  searchable do
+    text :name, :boost => 2.0
+  end
+
   def send_email_for_users
     User.without_supper_admin.each do |user|
       CompanyMailer.create(self, user).deliver
     end
-  end
-  
-  def self.search(search, page)
-    paginate :per_page => 5, :page => page
   end
   
 end
