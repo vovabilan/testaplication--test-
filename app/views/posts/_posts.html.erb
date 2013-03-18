@@ -1,0 +1,11 @@
+<div class="posts">
+  <p>
+    Post:
+    <ul>
+       <% @posts.each do |post|%>
+         <li><%= post.title %></li>
+
+       <% end %>
+    </ul>
+  </p>
+</div>

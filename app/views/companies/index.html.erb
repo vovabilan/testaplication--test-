@@ -11,6 +11,13 @@
   </div>
 </div>
 
+<%= form_tag companies_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <h1> <%= t(".company_companies") %> </h1>
 <table>
   <tr>

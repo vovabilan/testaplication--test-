@@ -1,10 +1,19 @@
 class PostsController < ApplicationController
+  PER_PAGE = 5
+
   before_filter :find_post, :only => [ :destroy, :update, :show, :edit ]
   before_filter :category, :only => [:new, :create]
-
+  
   def index
-    @posts = Post.all
-    @posts = Post.search(params[:search], params[:page])
+    @search = Post.search do
+      fulltext params[:search]
+      with (:user_id), current_user.id
+    end
+
+    @posts = @search.results
+
+    @posts = Post.paginate(:per_page => params[:per_page] || PER_PAGE,
+                       :page => params[:page] || 1)
   end
 
   def new
@@ -38,7 +47,7 @@ class PostsController < ApplicationController
     end
     redirect_to posts_path
   end
-
+  
   protected
 
   def find_post

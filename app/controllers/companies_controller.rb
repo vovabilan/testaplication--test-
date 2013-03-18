@@ -1,12 +1,20 @@
 class CompaniesController < ApplicationController
-  
+
+  PER_PAGE = 5
+
   before_filter :find_company, :only => [ :destroy, :update, :show, :edit ]
 
   before_filter :require_superadmin_login
 
   def index
-    @companies = Company.all
-    @companies = Company.search(params[:search], params[:page])
+    @search = Company.search do
+      fulltext params[:search]
+    end
+
+    @companies = @search.results
+
+    @companies = Company.paginate(:per_page => params[:per_page] || PER_PAGE,
+                       :page => params[:page] || 1)
   end
   
   def new

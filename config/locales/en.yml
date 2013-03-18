@@ -5,6 +5,7 @@ en:
   company: "Company"
   user: "User"
   post: "Post"
+  menu: "Menu"
   category: "Category"
   confirm-registration: "Confirm registration"
   password-reset: "Password Reset"

@@ -1,10 +1,18 @@
 class CategoriesController < ApplicationController
 
+  PER_PAGE = 5
+
   before_filter :require_superadmin_login
 
   def index
-    @categories = Category.all
-    @categories = Category.search(params[:search], params[:page])
+    @search = Category.search do
+      fulltext params[:search]
+    end
+
+    @categories = @search.results
+
+    @categories = Category.paginate(:per_page => params[:per_page] || PER_PAGE,
+                       :page => params[:page] || 1)
   end
 
   def new

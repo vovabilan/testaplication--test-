@@ -10,6 +10,7 @@
   <%= link_to t("company"), companies_path if is_supper_admin? %>
   <%= link_to t("post"), posts_path %>
   <%= link_to t("category"), categories_path if is_supper_admin? %>
+  <%= link_to t("menu"), menus_path %>
 
   <% if current_user %>
     <%= image_tag(current_user.avatar.url(:medium), class: "exampletooltip", title: "#{current_user.email}") if current_user.avatar %>

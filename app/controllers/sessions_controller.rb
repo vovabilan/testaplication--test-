@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
       render :new
     elsif user && user.authenticate(params[:password])
       params[:remember_me] ? cookies.permanent[:auth_token] = user.auth_token : cookies[:auth_token] = user.auth_token
-      redirect_to companies_url, :notice => t(".logged-in")
+      redirect_to menus_url, :notice => t(".logged-in")
     else
       flash.now[:error] = t(".email-or-password")
       render :new
     end
   end
-
+  
   def destroy
     cookies.delete(:auth_token)
     redirect_to root_url, :notice => t(".logged-out")
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   private
   
   def reqire_logined_user
-    redirect_to companies_path if current_user
+    redirect_to menus_path if current_user
     
   end
 end
